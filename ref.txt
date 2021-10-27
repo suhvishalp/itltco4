@@ -1,0 +1,62 @@
+
+Week1   - spring, spring boot, jpa, spring data jpa 
+
+week2  - transaction, caching, querydsl, REST, security, devops, docker
+
+Week3   - Microservices, AWS
+
+Week4   - frontend - angular, react 
+
+
+    Spring 
+        - core, mvc, rest, data, cloud, security, boot  
+        - you will end up with 1 app (REST application)
+
+    Microservices 
+        - config server, api gateway, service discovery, ....
+
+    Cloud / DevOps / Docker 
+        - EC2 - deploy application  
+        - automate the deployment using CI/CD 
+        - version controlled 
+        - Docker 
+
+    - Frontend 
+        - angular 
+        - react
+
+
+how?
+
+Session1    - raise a new topic, discussions, demonstrations 
+
+Session2    - hands-on, continue discussion, demonstrations 
+
+Session3    - self study, refer to the given docs, articles, books, 
+
+Session4    - assignments / hands-ons / practice
+
+
+
+Environment Setup 
+--------------------
+
+    1. your own personal laptop                          2. Virtual Machine 
+
+
+    a. openjdk 11
+    b. eclipse / STS editor 
+        - install required plugins 
+    c. docker 
+    d. nodejs 
+    e. mysql community server / any database of your choice 
+    f. vs code editor 
+        - install required plugins 
+    g. mongodb community server 
+
+
+
+
+
+    Spring 
+    ------------
