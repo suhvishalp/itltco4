@@ -56,7 +56,84 @@ Environment Setup
 
 
 
+    Language                    library/packages                    Framework 
+
+    Java                        standard libraries                  Spring 
+                                other libraries 
+
+    c# 
+
+    vb 
+
+    javascript 
+
+    python
+
+
+        |                               |                               |
+    provide programming         simplify the tasks              standarize the process
+    capabilities 
+
+
+
+    build tools / dependency management tools 
+        - maven / gradle 
+
+    Testing tools 
+
+
+    Tool 
+        - hibernate
+
 
 
     Spring 
     ------------
+
+        - core container 
+            - core 
+            - beans 
+            - context 
+            - SpEL
+
+        - web 
+            - web       - provides function such as creating web applications, rest, web services etc.
+            - web-mvc   - contains spring-mvc implementations for webapplications 
+            - web-socket
+            - web-portlet etc. 
+
+        - data access 
+            - 
+        - cloud 
+        - security
+        - ...
+
+
+
+        - IOC 
+            - delegates the responsibility of managing objects to something called 'Container'
+            - transfer the control of objects to a container
+
+        - Container 
+
+            - ApplicationContext    <- interface which represents IoC container 
+                - the implementations of this interface is responsible for instantiating objevts / manage the life cycle of objects 
+                - ClassPathXmlApplicationContext,
+                - AnnotationConfigApplicationContext, 
+                - AnnotationConfigWebApplicationContext,
+
+
+            - Dependency Injections 
+
+        - Spring Beans 
+
+
+        - Bean Definition / Bean Configuration 
+
+            - Ways to define the beans
+
+            a. xml 
+
+            b. java 
+
+            c. annotations 
