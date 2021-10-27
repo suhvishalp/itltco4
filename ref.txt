@@ -126,6 +126,7 @@ Environment Setup
             - Dependency Injections 
 
         - Spring Beans 
+            - "Bean" is an object which is managed by spring IoC Container 
 
 
         - Bean Definition / Bean Configuration 
@@ -133,6 +134,21 @@ Environment Setup
             - Ways to define the beans
 
             a. xml 
+
+                   <beans xmlns="http://www.springframework.org/schema/beans"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="
+                        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+                    <!-- bean definitions here -->
+                    
+                    <bean id="product" class="demo1.bo.Product"></bean>
+                    
+                    <bean id="productService" class="demo1.services.ProductService"></bean>
+                    
+                    <bean id="productDAO" class="demo1.dao.ProductDAO"></bean>
+
+                </beans>
 
             b. java 
 
