@@ -153,3 +153,142 @@ Environment Setup
             b. java 
 
             c. annotations 
+
+
+
+Auto Configurations
+-------------------------
+    - spring boot auto configuration will automatically define beans 
+            - based on presence / absence ....
+                - of some properties in application.properties file 
+                - of some beans 
+                - of some dependencies in class path 
+                - ...
+
+
+
+Data access 
+-----------------\  \
+        - jdbc 
+        - jdbc template 
+        - orm tools 
+
+
+
+    ORM Tools 
+    -----------\    
+        - object relational mapping 
+        - in java data is represented in the form of "object" 
+        - in rbdms systems data is represented in the form of tables 
+
+        - hibernate 
+        - toplink
+        - ibatis 
+
+        - map java object with relational table 
+
+    
+    JPA - java persistence api 
+    ----------
+        - specification / standard that every orm tool has to implement 
+
+    JPA Providers
+    ------------------
+        - Hibernate JPA 
+        - EclipseLink
+        - Mybatis
+        - Openjpa
+
+    Spring Data JPA 
+    ----------------
+        JPA         - specification
+
+        Hibernate   - jpa provider
+
+        Spring Data JPA - offers repository pattern 
+
+
+
+    Entity 
+    ----------
+        - Entity is an object which is managed by the persistence provider 
+        - entities can be concrete as well as abstract 
+        - entities also support relationships, inheritances 
+
+
+            @Entity
+            public class Employee {
+
+                    @Id 
+                    private int id;
+
+                    public Employee(){
+
+                    }
+            }
+
+    EntityManager 
+    ------------------
+        - used to perform all the db operations / CRUD operations 
+
+            EntityManagerFactory factory = Persistence.createEntityManagerFactory("puname");
+            EntityManager em = factory.createEntityManager();
+
+
+    Persistence Unit 
+    ------------------
+        - named set of entities to be persisted 
+
+            <persistence-unit name="puname">
+                <provider></provider>
+                <class></class>
+                ....
+
+                <properties>
+                    //db properties 
+                </properties>
+            </persistence-unit>
+
+    Managed entities
+    -----------------
+        - when an entitymanager obtains a ref to an entity, it is said to be managed 
+        - A managed entity is a representation of a database table row
+        - when an entity is managed, we can carry out persistence operations and the EM will automatically 
+            synchronize the state of the entity with the database 
+
+    Default Mapping 
+    ---------------------
+
+
+    Custom Mapping 
+    -------------------
+
+
+    Relationships and inheritance
+    ---------------------------------
+
+
+    Cascading events 
+
+
+    Fetch policy 
+
+
+    Querying entities 
+        - create custom queries using JPQL statement 
+
+        - create custom queries using native sql statement 
+
+        - named queries
+
+        - Query generation methods 
+
+        - Criteria API 
+
+        - QueryDSL 
+
+
+
+    Spring Data JPA 
+    ------------------
+        - repository pattern 
