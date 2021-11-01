@@ -1,0 +1,6 @@
+<ehcache> 
+  <diskStore path="/path/to/store/data"/> 
+  <cache> 
+    <persistence strategy="localRestartable" synchronousWrites="true"/> 
+  </cache> 
+</ehcache>
