@@ -258,23 +258,77 @@ Data access
 
     Default Mapping 
     ---------------------
+        - unless specified differently JPA provider will apply default rules for mapping 
+        - table name ll be similar to class name 
+        - column names will be similar to class properties 
+            string          = varchar (255)
+            long            = bigint 
+            boolean         = smallint 
+            int             = integer 
+
+             @Entity
+            public class Employee {                                         employee table 
+                                                                            id      emp_name        city        salary 
+                    @Id 
+                    private int id;
+                    private String empName;
+                    private String city;
+                    private double salary;
+
+
+                    public Employee(){
+
+                    }
+            }
+
+
 
 
     Custom Mapping 
     -------------------
+        - @Table 
+        - @Column 
+        - @Id --- @GeneratedValue 
 
 
-    Relationships and inheritance
-    ---------------------------------
+
+    JPA 
+        - standard/ specification for orm tools / persistence 
+
+    JPA Provider 
+        - ORM tool which implements Jpa specifications
+
+    Spring Data JPA 
+    ------------------
+        - it is an abstraction over jpa, which offers repository pattern 
 
 
-    Cascading events 
+
+                    inteface Repository             (MArker interface)
+                        |
+                        |
+                        |
+                    Interface CrudRepository<T,ID>
+                        |
+                        |-> long	count()
+                        |-> <S extends T>S	save(S entity)
+                        |-> Optional<T>	findById(ID id)
+                        |-> Iterable<T>	findAll()
+                        |-> void	delete(T entity)
+                        |-> void	deleteAll()
+                        |
+                        |
+                    interface PagingAndSortingRepository<T,ID>
+                        |
+                        |-> Page<T>	findAll(Pageable pageable)
+                        |-> Iterable<T>	findAll(Sort sort)
+                        |
+
+**SideNote : diff between @Component @Service @Repository @Controller 
 
 
-    Fetch policy 
 
-
-    Querying entities 
+     Querying entities 
         - create custom queries using JPQL statement 
 
         - create custom queries using native sql statement 
@@ -285,10 +339,74 @@ Data access
 
         - Criteria API 
 
-        - QueryDSL 
+        - QueryDSL
+            - used to create type safe queries in a domain specific language 
+            - QueryDSL required an apt plugin (annotation processing tool) 
+            - JPAAnnotationProcessor will find all the classes marked with @Entity annotation and 
+                generate "Query Types" automatically  
+
+            @Entity                             //Auto-generated QType class for Employee Entity
+            class Employee {                    class QEmployee {
+
+            }                                   }
+
+
+        1. in pom.xml configure the dependencies and the plugin 
+
+                <dependency>
+                    <groupId>com.querydsl</groupId>
+                    <artifactId>querydsl-apt</artifactId>
+                    <version>4.0.6</version>
+                    </dependency>
+                <dependency>
+                    <groupId>com.querydsl</groupId>
+                    <artifactId>querydsl-jpa</artifactId>
+                    <version>4.0.6</version>
+                </dependency>
+
+                <plugin>
+                <groupId>com.mysema.maven</groupId>
+                <artifactId>apt-maven-plugin</artifactId>
+                <version>1.1.3</version>
+                <executions>
+                    <execution>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>process</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>target/generated-sources/java</outputDirectory>
+                        <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+                    </configuration>
+                    </execution>
+                </executions>
+                </plugin>
+
+
+        2. add the 'target/generated-sources/java' as source folder
+
+        3. Clean the project 
+
+        4. QTypes will be generated automatically, observe all the QTypes 
+
+    Paging and Sorting 
 
 
 
-    Spring Data JPA 
-    ------------------
-        - repository pattern 
+    Inheritance 
+
+
+
+    Mapping Relationships 
+   
+
+    Cascading events 
+
+
+    Fetch policy 
+
+
+   
+
+
+    
