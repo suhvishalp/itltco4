@@ -323,6 +323,16 @@ Data access
                         |-> Page<T>	findAll(Pageable pageable)
                         |-> Iterable<T>	findAll(Sort sort)
                         |
+                    interface JPARepository<T,ID>
+                        |
+                        |-> List<T>	findAll() 
+                        |-> <S extends T>List<S>	findAll(Example<S> example) 
+                        |
+                        |
+                        |
+                        |
+                        |
+
 
 **SideNote : diff between @Component @Service @Repository @Controller 
 
@@ -394,17 +404,119 @@ Data access
 
 
     Inheritance 
-
+        - SINGLE_TABLE
+        - TABLE_PER_CLASS 
+        - JOINED
 
 
     Mapping Relationships 
-   
+    -------------------------
+
+
+            @OneToOne                       <-- Join Column
+            @ManyToOne                      <-- Join Column
+
+
+            @OneToMany                      <-- Join table 
+            @ManyToMany                     <-- join table 
+
+
+
+
+
+        1. One-to-One 
+        ------------------
+      
+        Person{                                              DrivingLicense {
+            int id;                                             int id;
+            String name;                                        String licenseNumber;
+            Date dob; 
+                                                                @OneToOne
+            @OneToOne                                           Person person;
+            DrivingLicense license;
+
+        }                                                   }
+
+
+        Person      1<---------------------->1    DrivingLicense
+
+
+        Persontable                                         DrivingLicense table 
+        ---------------                                     ---------------------
+                            FK                                                  FK
+        id  name    dob     license-id                      id  licenseNumber   person-id 
+
+
+
+
+
+
+
+
+        2. Many-To-Many 
+        -----------------------
+
+               class  Order {                                       class Product {
+                    int id;                                             long id; 
+                    Date orderDate;                                     String name; 
+
+                    @ManyToMany                                         @ManyToMany
+                    Set<Product> products;                              Set<Order> orders;
+
+                }                                                   }
+
+
+              Order   *<---------------------->*      Product 
+
+
+        3. One-To-Many 
+
+             class  Customer{                                  class   Address {
+                    int id;                                         int id;
+
+                    @OneToMany
+                    Set<Address> addresses;                         String city;
+                                                                    @ManyToOne
+                                                                    Customer customer;
+
+             }                                                  }
+
+
+             Customer       1--------------------->*  Address
+             
+
+            customer table                                      address table 
+            ---------------                                     ----------------
+            id   name  dob                                      id  city street pincode 
+
+            customer_address_table 
+            ------------------------
+            customer_id         address_id 
+
+
+        4. Many-To-One                                               
+
+    
+
+    1. identify & configure the relationship between two entities using appropriate annotations 
+            - determine direction & cardinality 
+
+    2. understand / observe how these associations are represented in database 
+
+    3. define appropriate cascade event and fetch policy when entities are associated with each other 
+
+    4. perform db operations 
 
     Cascading events 
-
+            PERSIST 
+            REEMOVE 
+            MERGE
+            DETACH
+            ALL 
 
     Fetch policy 
-
+        EAGER 
+        LAZY 
 
    
 
