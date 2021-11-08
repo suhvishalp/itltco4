@@ -15,6 +15,7 @@ import com.way2learnonline.repository.AccountRepository;
 import com.way2learnonline.repository.RewardRepository;
 import com.way2learnonline.repository.TransactionRepository;
 
+@Transactional
 public class AccountServiceImpl implements AccountService {
 
 	@Autowired
@@ -29,7 +30,7 @@ public class AccountServiceImpl implements AccountService {
 
 
 	
-
+	
 	public Long debit(int amount, Long accountNumber) throws SQLException {
 		
 			auditService.writeAuditLog("trying to debit "+amount+"  from  account with account number "+accountNumber);
@@ -50,6 +51,7 @@ public class AccountServiceImpl implements AccountService {
 		
 	}
 
+	@Transactional
 	public Long credit(int amount, Long accountNumber) throws SQLException {
 		
 		auditService.writeAuditLog("trying to credit "+amount+"  from  account with account number "+accountNumber);

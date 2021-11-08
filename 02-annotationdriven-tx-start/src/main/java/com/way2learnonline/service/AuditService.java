@@ -11,6 +11,7 @@ public class AuditService {
 	private JdbcTemplate jdbcTemplate;
 	
 
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void writeAuditLog(String message){
 		String query="insert into auditlogs(logmessage) values(?) ";
 		
