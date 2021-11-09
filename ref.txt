@@ -521,4 +521,126 @@ Data access
    
 
 
-    
+Cachinig Providers
+--------------------
+    - ehcache 
+    - swar  m cache 
+    - jboss cache 
+    - OS cache 
+
+
+Cache Concurrency Strategies 
+
+    READ_ONLY 
+
+    NONSTRICT_READ_ONLY 
+
+    READ_WRITE 
+
+    TRANASACTIONAL 
+
+
+ Microservices
+        - small and focused services for each module 
+        - heterogenous - the services can be developed with diff programming languages 
+            - also they can run on diff platform 
+        - easy to migrate 
+        - robustness 
+        - services are independently scalable 
+        - easy to deploy 
+        - replacable and reusable 
+
+    Monolithic Applications 
+        - one big application containing all the modules 
+
+SPRING REST
+----------------
+
+    REST - representational state transfer 
+
+    http methods 
+        - GET 
+        - POST 
+        - PUT 
+        - PATCH 
+        - DELETE 
+
+    REST APis 
+
+    HATEOAS 
+
+        HTTP://localhost:8082/api/employees 
+
+        [
+            {
+                name : "xxxx", 
+                city : "xxxxx", 
+                phone : "xxxxxX",
+                _link : {
+                    self : {
+                        "href" : "http://.x.x.x.x.x.x.xx."
+                    }
+                }
+            },
+            {           
+                name : "xxxx", 
+                city : "xxxxx", 
+                phone : "xxxxxX"
+            },
+            {           
+                name : "xxxx", 
+                city : "xxxxx", 
+                phone : "xxxxxX"
+            },            {           
+                name : "xxxx", 
+                city : "xxxxx", 
+                phone : "xxxxxX"
+            },
+        ]
+
+    HAL 
+        - Hypertext application language 
+        - implementation of HATEOAS
+
+
+
+    Spring Web application 
+    --------------------------
+        - RESTFul application  / REST API 
+        - expose below endpoints 
+
+            GET         http://localhost:8080/api/employees 
+                            - return all the employees 
+
+            GET         http://localhost:8080/api/employees/1
+                            - return an employee with given id 
+
+            POST        http://localhost:8080/api/employees 
+
+                            {
+                                "name" : "xxx", 
+                                "city" : "xxx", 
+                                "salary" : xxxx
+                            }
+
+            PUT         http://localhost:8080/api/employees/1
+
+                            {
+                                "name" : "xxx", 
+                                "city" : "xxx", 
+                                "salary" : xxxx
+                            }
+                            
+            DELETE      http://localhost:8080/api/employees/1
+
+
+                     
+
+
+
+    SPRING DATA REST 
+    --------------------
+
+    SWAGGER 
+
+   
