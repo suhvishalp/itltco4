@@ -6,7 +6,10 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.xml.bind.ValidationException;
 
+import org.apache.tomcat.util.file.ConfigurationSource.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +28,7 @@ import com.demo.exceptions.EmployeeNotFoundExpcetion;
 import com.demo.exceptions.ErrorMessage;
 import com.demo.services.EmployeeService;
 
+
 @RestController
 public class EmployeeController {
 
@@ -37,16 +41,26 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/api/employees/{id}")
-	public Employee getEmp(@PathVariable("id") int id){
+	public EntityModel<Employee> getEmp(@PathVariable("id") int id){
+		
 		Employee e =  empService.getEmp(id);
 		if(e == null) {
 			throw new EmployeeNotFoundExpcetion("Employee with given id is not found");
 		}
 		
-		return e;
+		//hateoas object structure
+		//find the server root path ++ /api/employees 
+				//or we can retrieve the link for getAllEmp() handler method 
+		//send back this path as a link url along with the response  
+				
+		EntityModel<Employee> resource = EntityModel.of(e);
+		
+		WebMvcLinkBuilder linkTo = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getAllEmp());
+		
+		resource.add(linkTo.withRel("allEmp"));
+		
+		return resource;
 	}
-	
-	
 	
 
 	@PostMapping("/api/employees")
