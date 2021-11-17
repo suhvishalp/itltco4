@@ -568,6 +568,7 @@ SPRING REST
     REST APis 
 
     HATEOAS 
+        - Hypermedia as the engine of application state 
 
         HTTP://localhost:8082/api/employees 
 
@@ -643,4 +644,103 @@ SPRING REST
 
     SWAGGER 
 
-   
+   https://256335658213.signin.aws.amazon.com/console
+
+
+
+   sudo su 
+   yum update -y
+   amazon-linux-extras install java-openjdk11 -y
+   amazon-linux-extras install tomcat8.5 -y 
+
+
+   service tomcat status 
+
+   service tomcat start 
+
+   cd /usr/share/tomcat/webapps 
+
+   mkdir ROOT 
+   cd ROOT 
+   echo "Helloworld.. this is my 1st app" > index.html
+
+
+
+   service tomcat stop 
+
+
+
+code commit 
+-----------------
+    - offer private git repository 
+
+    1. create a new repository 
+
+    2. generate git credentials 
+
+    3. set a new spring project 
+
+    4. commit the source code 
+
+
+code build 
+-------------
+    1. create a buildspec.yml file in source root directory 
+
+        version: 0.2
+
+            phases:
+            install:
+                runtime-versions:
+                java: corretto11
+            pre_build:
+                commands:
+                - echo Nothing to do in the pre_build phase...
+            build:
+                commands:
+                - echo Build started on `date`
+                - mvn install
+            post_build:
+                commands:
+                - echo Build completed on `date`
+            artifacts:
+            files:
+                - target/myapp1.war
+
+    2. create a S3 bucket in the same region as code build project 
+
+    3. create code build project 
+
+    4. start the build 
+
+    5. verify the s3 bucket and the generated artifacts 
+
+
+Code deploy
+---------------
+
+        1. create a role for EC2 instance to allow access to S3 service 
+
+        2. create a role for code deploy service 
+
+        2. create EC2 Instance and ensure... 
+            a. it hass appropriate role to perform operations on S3
+            b. ensure below things are installed 
+                - jre 11
+                - tomcat 
+                - codedeploy-agent 
+
+                commands 
+                ----------
+                sudo su 
+                yum update -y
+                amazon-linux-extras install java-openjdk11 -y
+                amazon-linux-extras install tomcat8.5 -y 
+
+                //use the documetation to install code-deploy agent 
+
+                 wget https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install
+
+
+
+            c. it has appropriate security group to allow communication on SSH and HTTP PORT 8080
