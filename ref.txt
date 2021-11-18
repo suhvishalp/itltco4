@@ -723,8 +723,8 @@ Code deploy
 
         2. create a role for code deploy service 
 
-        2. create EC2 Instance and ensure... 
-            a. it hass appropriate role to perform operations on S3
+        3. create EC2 Instance and ensure... 
+            a. it has appropriate role to perform operations on S3
             b. ensure below things are installed 
                 - jre 11
                 - tomcat 
@@ -738,9 +738,102 @@ Code deploy
                 amazon-linux-extras install tomcat8.5 -y 
 
                 //use the documetation to install code-deploy agent 
+                https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-linux.html
 
                  wget https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install
 
 
 
             c. it has appropriate security group to allow communication on SSH and HTTP PORT 8080
+
+        4. create appspec.yml and required scripts to instruct code deploy agent to perform the deployment 
+
+                version: 0.0
+                os: linux
+                files:
+                - source: target/myapp1.war
+                    destination: /usr/share/tomcat/webapps/
+                hooks:
+                BeforeInstall:
+                    - location: scripts/before_install.sh
+                    timeout: 300
+                    runas: root
+                AfterInstall:
+                    - location: scripts/after_install.sh
+                    timeout: 300
+                    runas: root
+                ApplicationStart:
+                    - location: scripts/application_start.sh
+                    timeout: 300
+                    runas: root
+                ApplicationStop:
+                    - location: scripts/application_stop.sh
+                    timeout: 300
+                    runas: root
+
+
+
+Docker
+------------
+    - most popular container tool 
+    - package your code and dependencies in a single executable and run it on any platform 
+
+
+    Docker Image 
+        - self executable package that contains the code, runtime, libraries, dependencies etc. 
+
+    Container 
+        - an instance of a docker image is called 'Container'  
+
+
+    1. create a docker image 
+
+    2. store / push the docker image to some repository 
+            - docker hub 
+            - aws ECR 
+            - gcp Container Registery 
+            - ...?
+
+    3. run the docker image 
+
+
+    docker run 
+    docker container ls 
+    docker ps 
+    docker images 
+    docker build 
+
+
+
+Microservices
+-----------------
+    - small services that work together 
+    - most services are ...
+        - small / independent applications 
+        - independent deployable units 
+        - basically exposed by REST
+        - cloud enabled 
+
+challenges in Microservices
+        1. define boundaries            <<- design problem 
+
+        2. configuration management     <<- spring cloud config 
+
+        3. dynamically scale up / scale down <<- spring cloud netflix <<- load balancing / healh checks 
+
+        4. visibility <<- spring cloud netflix <<-service registry and discovery 
+
+        5. Monitoring, auditing, tracing 
+
+
+
+
+
+Spring Cloud 
+----------------
+
+
+
+config-service      8888 
+
+limit-service       8080, 8081
