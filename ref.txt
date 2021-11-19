@@ -829,11 +829,22 @@ challenges in Microservices
 
 
 
-Spring Cloud 
+
+
+
+
+Key components of Microservices
 ----------------
 
+    1. config server 
+    2. naming server / service registry and discovery 
+    3. api gateway 
+    4. load balancing 
+    5. tracing 
 
 
 config-service      8888 
 
 limit-service       8080, 8081
+
+xxxx-service        8082, 8083, 8084 

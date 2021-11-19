@@ -35,6 +35,7 @@ public class CurrencyConversionController {
 		double total = qty * rate;
 		
 		CurrencyConversion cc =  new CurrencyConversion(1, from, to, rate, qty, total);
+		cc.setPort(ce.getEnvironment());
 		
 		return cc;
 		

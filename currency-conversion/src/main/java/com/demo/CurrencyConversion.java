@@ -8,12 +8,28 @@ public class CurrencyConversion {
 	private double exchangeRate;
 	private int qty;
 	private double totalCalculatedAmount;
+	private String port;
 	
 	public CurrencyConversion() {
 		super();
 	}
 	
 	
+	
+
+	public String getPort() {
+		return port;
+	}
+
+
+
+
+	public void setPort(String port) {
+		this.port = port;
+	}
+
+
+
 
 	public CurrencyConversion(int id, String from, String to, double exchangeRate, int qty,
 			double totalCalculatedAmount) {
