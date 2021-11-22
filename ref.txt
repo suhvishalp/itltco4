@@ -848,3 +848,136 @@ config-service      8888
 limit-service       8080, 8081
 
 xxxx-service        8082, 8083, 8084 
+
+
+Front End Development tools & Framework 
+-------------------------------------------
+
+HTML 
+    - "what" contents you want to place on your webpage i.e. heading, paragraphs, images, link, tables, forms etc.
+    - define the structure of webpages 
+
+CSS 
+    - "how" the content should appear on webpage 
+    - define the style rules for the webpages 
+
+JavaScript 
+    - it is a scripting language / an interpreted language 
+    - in every browser there is a 'javascript engine' which is responsible to execute the js code 
+
+            - google chrome     - v8 
+            - firefox           - spidermonkey 
+            - IE                - chakra 
+
+    - 1997, js was introduced 
+    - 1997, it was submitted to ECMA for standardization
+        - since then ECMA kept publishing diff specification which every browser has implement 
+        - the implementation of such specifications / standard is called "ECMAScript"
+
+    - 1997  - ES1 
+    - 1998  - ES2 
+    - 1999  - ES3
+    - 2009  - ES5 
+
+    - 2015  - ES6
+                - modern javascript 
+                - it brought lot of new features to javascript 
+
+                - arrow functions 
+                - spread operators 
+                - object destructuring 
+                - classes and objects 
+                - module system 
+                - generators 
+                - promises, async and await keywords 
+                - 
+    - 2016 
+    - 2017 
+    - 
+    - 
+    -
+    - 2021  - ES12 
+
+    - used to 
+        - write business logic / perform calculations / form validation 
+        - dom manipulation / css manipulation 
+        - event handling 
+        - ajax calls / http calls 
+
+ES6 
+    - modern javascript 
+
+
+Javascript tools 
+-----------------
+    - transpilers 
+        - convert modern js code into legacy js ccode 
+        - i.e. Babel 
+
+    - bundlers 
+        - used to group several files together and create a single optimized bundle 
+        - i.e. webpack 
+
+JQuery 
+    - it is a javascript library 
+    - open source / light weight / has several functions to perform various operations 
+
+
+
+        **in js, the data types are dynamic 
+        var x = 'Welccome'          //string 
+
+        x = 900;                    //number 
+
+
+        function arithAdd(a, b){
+
+        }
+
+        arithAdd()          //valid 
+        arithAdd("one", "two")
+
+
+
+TypeScript 
+    - it is superset of javascript / ES6 ++ offers some additional features i.e. type safety, oops featuers, decorators 
+    - it is compiled language 
+    - it is type safe than javascript
+
+    - typescript cannot be executed directly in browser 
+    - ts code is converted to js code 
+
+
+     function arithAdd(a:number, b:number) :number {
+                
+        } 
+
+Bootstrap 
+    - it a library to make "responsive web pages"
+    - HTML+CSS+jQuery
+
+
+Angular 
+
+
+React 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
