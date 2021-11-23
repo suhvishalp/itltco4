@@ -1,3 +1,39 @@
 <div>
     <h1>MovieList</h1>
+
+
+    <div *ngIf="movieList.length > 0; else noMovies">
+        <p>Showing {{ movieList.length }} movies from database </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Stock</th>
+                    <th>Rate</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let movie of movieList">
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.genre.name }}</td>
+                    <td>{{ movie.numberInStock }}</td>
+                    <td>{{ movie.dailyRentalRate }}</td>
+                    <td>
+                        <button (click)="handleDelete(movie)" class="btn btn-danger btn-xs">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <ng-template #noMovies>
+        <h1>No movies in the database yet!.. </h1>
+    </ng-template>
+
 </div>

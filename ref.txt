@@ -1074,9 +1074,58 @@ Angular
         2. property binding 
         3. class binding 
         4. style binding 
+        5. event binding 
 
 
 
+    Directives 
+    ------------
+
+        1. attribute directives 
+                [ngClass] 
+
+                [ngStyle]
+
+                [ngModel]
+
+        2. structural directives 
+                *ngIf 
+
+                *ngFor 
+
+
+        3. component directive 
+
+
+
+        {
+            "_id": "619ccb4a533e06106e85c2d9",
+            "title": "Airplane",
+            "numberInStock": 5,
+            "dailyRentalRate": 2,
+            "genre": {
+                "_id": "619ccb4a533e06106e85c2d8",
+                "name": "Comedy"
+            }
+    }
+
+
+
+
+    Observable in angular 
+    -------------------------
+        - Observable object is used to handle asynchronus operations 
+
+
+
+    steps for the nodejs backend 
+    -------------------------------
+        1. download the zip and extract it 
+        2. start mongodb server 
+        3. open the nodejsproject in vs code 
+        4. run "npm install" 
+        5. run "node seed.js" 
+        6. run "node index.js" 
 
 React 
 
