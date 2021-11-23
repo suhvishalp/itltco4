@@ -958,6 +958,124 @@ Bootstrap
 
 
 Angular 
+------------
+    - it is a MVC based javascript framework for webapplications 
+    - the libraries are written in typescript 
+    - built in support for routing, form handling, http calls etc. 
+    - 
+
+
+
+    install angular-cli 
+    ---------------------
+        - CLI tool to create angular project, components, services etc. 
+
+        > npm install -g @angular/cli 
+
+
+    helloworld angular app 
+    -------------------------
+        > ng new helloworld-app
+
+
+    Building blocks of angular app 
+    --------------------------------
+
+            1. Component 
+                    - a component is used to render a particular patch on the screen 
+                    - encapsulates data, view and logic together 
+                    - a component is a typescript class 
+
+                    @Component({
+                        selector : 'app-header',
+                        templateUrl : './header.component.html'
+                    })
+                    export class Header {
+
+                        //fields / properties 
+
+                        //constructor 
+
+                        //methods 
+
+                    }
+
+                    <app-header></app-header>
+
+
+            2. Template 
+                    - component renders a template 
+                    - it is a 'view' written in html  
+
+
+            3. Module 
+                - a module is a contanier to register all the components, services, directive, pipes etc. 
+                - in every angular app there should be at least 1 Module 
+
+
+            4. Directives 
+
+
+            5. Pipes 
+
+
+            6. Serviecs 
+
+    directory structure 
+    --------------------
+
+        project 
+            |
+            |-->node_modules
+            |   |-> stores all the dependencies / libraries downloaded 
+            |
+            |
+            |-->src 
+            |   |
+            |   |-->app 
+            |   |   |--->app.module.ts 
+            |   |   |--->app.components.ts 
+            |   |   |--->app.component.html
+            |   |
+            |   |-->assets 
+            |   |   |->store images / pdf / audio / video / other files 
+            |   |
+            |   |-->environments
+            |   |   |->environment.ts 
+            |   |   |->environment.prod.ts 
+            |   |
+            |   |-->index.html
+            |   |   |-> first file which gets served 
+            |   |
+            |   |-->main.ts
+            |   |   |-> entry point of angular application 
+            |   |   |-> bootstrap or load applications root module 
+            |   |
+            |   |-->styles.css
+            |   |   |-> define global CSS rules
+            |
+            |
+            |-->package.json 
+            |   |-> lists all the dependencies and configures some scripts 
+            |
+            |-->angular.json 
+            |   |-> angular specific configuration 
+            |
+            |-->tsconfig.json 
+            |   |-> typescript related configuration
+            |
+
+
+    Data Binding 
+    -------------------
+        - communication between component and template 
+
+        1. string interpolation 
+        2. property binding 
+        3. class binding 
+        4. style binding 
+
+
 
 
 React 

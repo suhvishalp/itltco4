@@ -1,0 +1,17 @@
+.myheader{
+    background-color: lightskyblue;
+    height:200px;
+    padding:20px;
+}
+
+.mynavbar{
+    background-color: lightsalmon;
+    height: 800px;
+    padding:10px;
+}
+
+.movielist{
+    background-color: lightyellow;
+    height: 800px;
+    padding: 10px;
+}
