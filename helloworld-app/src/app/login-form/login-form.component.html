@@ -1,0 +1,33 @@
+<h1>Login Form</h1>
+
+
+<form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm)">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" 
+        class="form-control" 
+        id="email" 
+        ngModel
+        required
+        minlength="4"
+        #email="ngModel"
+        name="email">
+
+    <div *ngIf="!email.valid && email.touched" >
+       <div *ngIf="email.errors?.['required']" class="alert alert-danger">Email cannot be kept blank</div>
+       <div *ngIf="email.errors?.['minlength']" class="alert alert-danger">Email should be atleast 4 characters </div>
+    </div>
+     
+
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" 
+            class="form-control" 
+            id="password"
+            ngModel
+            name="password"
+            required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

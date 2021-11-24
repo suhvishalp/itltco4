@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +15,14 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     NavbarComponent,
-    MovieListComponent
+    MovieListComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule, 
-    HttpClientModule
+    HttpClientModule, 
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

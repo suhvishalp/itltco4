@@ -1127,6 +1127,8 @@ Angular
         5. run "node seed.js" 
         6. run "node index.js" 
 
+        http://localhost:3900/api/movies 
+
 React 
 
 
